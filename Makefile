@@ -12,4 +12,4 @@ default:$(BINS)
 	$(CXX) $(CXXFLAGS) -o $@ $<
 
 clean:
-	rm -f $(BINS)
+	rm -rf $(BINS) input/ output/
