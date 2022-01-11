@@ -12,4 +12,4 @@ default:$(BINS)
 	$(CXX) $(CXXFLAGS) -o $@ $<
 
 clean:
-	rm -rf $(BINS) input/ output/
+	rm -rf $(BINS) input/ output/ *.zip
