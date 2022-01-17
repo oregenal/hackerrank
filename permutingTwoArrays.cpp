@@ -17,39 +17,12 @@ vector<string> split(const string &);
  */
 
 string twoArrays(int k, vector<int> A, vector<int> B) {
-	const int LIMIT = 1000000000;
-	size_t size = A.size();
+	sort(A.begin(), A.end());
+	sort(B.begin(), B.end());
+	reverse(B.begin(), B.end());
 
-	for(size_t i = 0; i < size; ++i) {
-		int rel = k - A[i];
-		bool search = true;
-
-		while(search) {
-			bool biger = false;
-
-			for(size_t j = i; j < size; ++j) {
-				if(rel == B[j]) {
-					int tmp = B[i];
-					B[i] = B[j];
-					B[j] = tmp;
-					search = false;
-					break;
-				} else if(rel < B[j]) {
-					biger = true;
-				}
-			}
-
-			if(!biger)
-				break;
-				//search = false;
-
-			rel++;
-
-			if(rel == LIMIT)
-				return "NO";
-		}
-
-		if(search)
+	for(size_t i = 0; i < A.size(); ++i) {
+		if(A[i] + B[i] < k)
 			return "NO";
 	}
 
