@@ -20,7 +20,7 @@ int birthday(vector<int> s, int d, int m) {
 	int counter = 0;
 	size_t iter;
 
-	s.size() == m ? iter = 1 : iter = s.size();
+	s.size() == (size_t)m ? iter = 1 : iter = s.size();
 
 	for(size_t i = 0; i < iter; ++i) {
 		int sum = 0;
