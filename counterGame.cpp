@@ -23,7 +23,8 @@ string counterGame(long n) {
 			power++;
 		}
 
-		long result = pow(2, power);
+		long result = 1;
+		result <<= power;
 		result < n ? n -= result : n -= result >> 1;
 		Louise = !Louise;
 	}
