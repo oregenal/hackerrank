@@ -15,15 +15,14 @@ vector<string> split(const string &);
  *  2. INTEGER k
  */
 
-// TODO: To slow
 int superDigit(string n, int k) {
 	unsigned long result = 0;
 
-	for(int i = 0; i < k; ++i) {
-		for(size_t j = 0; j < n.size(); ++j) {
-			result += n[j] - 0x30;
-		}
+	for(size_t j = 0; j < n.size(); ++j) {
+		result += n[j] - 0x30;
 	}
+
+	result *= k;
 
 	while(result/10) {
 		unsigned long res = 0;
