@@ -16,7 +16,41 @@ vector<string> split(const string &);
  */
 
 vector<string> bomberMan(int n, vector<string> grid) {
-	//TODO
+	size_t vec_size = grid.size();
+	size_t str_size = grid[0].size();
+	for(int turn = 0; turn <= n; ++ turn) {
+		for(size_t i = 0; i < vec_size; ++i) {
+			for(size_t j = 0; j < str_size; ++j) {
+				if(grid[i][j] == 'O')
+					grid[i][j] = '3';
+				
+				if(grid[i][j] != '.' && grid[i][j] - '0' == turn) {
+					grid[i][j] = '.';
+					if(i > 0)
+						grid[i-1][j] = '.';
+					if(i < vec_size-1 && grid[i+1][j] -'0' != turn)
+						grid[i+1][j] = '.';
+					if(j > 0)
+						grid[i][j-1] = '.';
+					if(j < str_size-1 && grid[i][j+1] -'0' != turn)
+						grid[i][j+1] = '.';
+				}
+
+				if(turn != 0 && !(turn % 2)) {
+					if(grid[i][j] == '.')
+						grid[i][j] = '0' + turn + 3;
+				}
+			}
+		}
+	}
+
+	for(size_t i = 0; i < vec_size; ++i) {
+		for(size_t j = 0; j < str_size; ++j) {
+			if(grid[i][j] != '.')
+				grid[i][j] = 'O';
+		}
+	}
+
 	return grid;
 }
 
